@@ -50,3 +50,17 @@ clf = load('filename.joblib')
 
 # The goal of joblib is to save models for later use
 
+import numpy as np
+from sklearn import random_projection
+
+rng = np.random.RandomState(0)
+X = rng.rand(10, 2000)
+X = np.array(X, dtype='float32')
+print(X.dtype)
+
+transformer = random_projection.GaussianRandomProjection()
+X_new = transformer.fit_transform(X)
+print(X_new.dtype)
+
+# i got bored with this tutorial, may revisit if the stuff on it becomes relevant on a project
+
